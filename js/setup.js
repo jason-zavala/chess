@@ -28,13 +28,20 @@ var onSnapEnd = function() {
 };
 
 // Configure board
-var cfg = {
+
+var cfg = 
+{
   draggable: true,
-  position: 'start',
-  // Handlers for user actions
-  onMoveEnd: onMoveEnd,
-  onDragStart: onDragStart,
-  onDrop: onDrop,
-  onSnapEnd: onSnapEnd
+  dropOffBoard: 'snapback',
+  position: 'start'
 }
+// var cfg = {
+//   draggable: true,
+//   position: 'start',
+//   // Handlers for user actions
+//   onMoveEnd: onMoveEnd,
+//   onDragStart: onDragStart,
+//   onDrop: onDrop,
+//   onSnapEnd: onSnapEnd
+// }
 board = ChessBoard('board', cfg);
