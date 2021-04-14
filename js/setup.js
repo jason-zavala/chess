@@ -33,8 +33,21 @@ var cfg =
 {
   draggable: true,
   dropOffBoard: 'snapback',
-  position: 'start'
+  position: 'start',
+  onDrop: function(source, target){
+    var move = game.move({
+      from: source, 
+      to: target,
+      promotion: 'r'
+      
+    })
+  },
 }
+
+window.setTimeout(function() {
+  move();
+}, 200);
+
 // var cfg = {
 //   draggable: true,
 //   position: 'start',
