@@ -27,34 +27,28 @@ var onSnapEnd = function() {
   board.position(game.fen());
 };
 
-// Configure board
+// function to respond to players move (i.e. this is called when the white player drops their piece)
+var onDrop  = function(source, target)
+{
+  var move = game.move({
+    from:source,
+    to: target, 
+    promotion: 'r' //could be queen but rooks are more spicy imo
+  });
+
+  console.log("here I am ");
+
+  window.setTimeout(function() {
+    moveMe();
+  }, 250);
+};
 
 var cfg = 
 {
   draggable: true,
   dropOffBoard: 'snapback',
   position: 'start',
-  onDrop: function(source, target){
-    var move = game.move({
-      from: source, 
-      to: target,
-      promotion: 'r'
-      
-    })
-  },
+  onDrop: onDrop,
 }
 
-window.setTimeout(function() {
-  move();
-}, 200);
-
-// var cfg = {
-//   draggable: true,
-//   position: 'start',
-//   // Handlers for user actions
-//   onMoveEnd: onMoveEnd,
-//   onDragStart: onDragStart,
-//   onDrop: onDrop,
-//   onSnapEnd: onSnapEnd
-// }
 board = ChessBoard('board', cfg);

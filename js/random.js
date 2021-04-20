@@ -6,7 +6,7 @@ var randMove = function() {
 }
 
 //this is a dry run... 
-var move = function(){
+var moveMe = function(){
     if(game.game_over() === true){
         console.log('game over loser');
         return;
